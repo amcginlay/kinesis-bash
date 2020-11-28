@@ -5,7 +5,7 @@ outer_range=${2:-10}
 inner_range=${3:-25}
 sleep_duration=${4:-2}
 
-stream_name=chat_${stream_id}
+stream_name=data_${stream_id}
 
 echo "----------------------------------------------------------"
 echo "start './consumer.sh ${stream_id}' in another terminal session"
