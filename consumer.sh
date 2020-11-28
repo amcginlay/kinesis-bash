@@ -5,7 +5,7 @@ if [[ $# -eq 0 ]]; then
     exit -1
 fi
 
-stream_name=chat_${1}
+stream_name=data_${1}
 
 echo "waiting: ${stream_name}"
 aws kinesis wait stream-exists --stream-name ${stream_name}
