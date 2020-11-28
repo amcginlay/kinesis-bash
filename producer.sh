@@ -10,7 +10,6 @@ stream_name=data_${stream_id}
 echo "----------------------------------------------------------"
 echo "start './consumer.sh ${stream_id}' in another terminal session"
 echo "----------------------------------------------------------"
-echo
 
 echo "checking for stream ${stream_name}"
 if aws kinesis describe-stream --stream-name ${stream_name} > /dev/null 2>&1; then
