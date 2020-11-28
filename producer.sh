@@ -11,6 +11,7 @@ echo "----------------------------------------------------------"
 echo "start './consumer.sh ${stream_id}' in another terminal session"
 echo "----------------------------------------------------------"
 
+# in case stream already exists then we delete it to ensure only newly produced data can be consumed
 echo "checking for stream ${stream_name}"
 if aws kinesis describe-stream --stream-name ${stream_name} > /dev/null 2>&1; then
   echo "deleting stream ${stream_name}"
@@ -18,11 +19,14 @@ if aws kinesis describe-stream --stream-name ${stream_name} > /dev/null 2>&1; th
   aws kinesis wait stream-not-exists --stream-name ${stream_name}
   echo "deleted stream ${stream_name}"
 fi
+
+# create the stream
 echo "creating stream ${stream_name}"
 aws kinesis create-stream --stream-name ${stream_name} --shard-count 1
 aws kinesis wait stream-exists --stream-name ${stream_name}
 echo "created stream ${stream_name}"
 
+# produce batches of data
 for outer in $(seq ${outer_range}); do
   records=""
   for inner in $(seq ${inner_range}); do
