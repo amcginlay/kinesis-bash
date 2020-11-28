@@ -1,6 +1,9 @@
 # kinesis-bash
 
-To run this demo, first ensure `aws` CLI is installated and authenticated to use Kinesis.
+To run this demo, first ensure the following:
+
+- `aws` CLI is installated and authenticated to use Kinesis.
+- [`jq`](https://stedolan.github.io/jq/) is installed.
 
 Then execute ...
 ```
