@@ -16,8 +16,8 @@ iterator=$(aws kinesis get-shard-iterator --stream-name ${stream_name} --shard-i
 for (( c=1; ; c++ )); do
   echo "iteration: ${c}"
   results=$(aws kinesis get-records --shard-iterator ${iterator})
-  iterator=$(echo ${results} | jq .NextShardIterator --raw-output)  
-  echo ${results} | jq '.Records[].Data' --raw-output | while read data; do
+  jq '.Records[].Data' --raw-output <<< ${results} | while read data; do
     echo "consumed record $(base64 --decode <<< ${data})"
   done
+  iterator=$(jq .NextShardIterator --raw-output <<< ${results})  
 done
