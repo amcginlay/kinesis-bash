@@ -7,10 +7,10 @@ fi
 
 stream_name=data_${1}
 
-echo "waiting: ${stream_name}"
+echo "waiting for ${stream_name}"
 aws kinesis wait stream-exists --stream-name ${stream_name}
 
-echo "consuming: ${stream_name} (ctrl+c to end)"
+echo "consuming from ${stream_name} (ctrl+c to end)"
 iterator=$(aws kinesis get-shard-iterator --stream-name ${stream_name} --shard-id 0 --shard-iterator-type TRIM_HORIZON --query '[ShardIterator]' --output text)
 for (( c=1; ; c++ )); do
   echo "iteration: ${c}"
