@@ -6,4 +6,4 @@ Then execute ...
 ```
 ./producer.sh
 ```
-... and follow the prompts on how to invoke `consumer.sh`
+... and follow the prompts to see how to invoke `consumer.sh`
