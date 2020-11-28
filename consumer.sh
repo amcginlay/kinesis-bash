@@ -7,6 +7,7 @@ fi
 
 stream_name=data_${1}
 
+# make sure you enter the stream id correctly or you'll be stuck here for a while ...
 echo "waiting for stream ${stream_name}"
 aws kinesis wait stream-exists --stream-name ${stream_name}
 
