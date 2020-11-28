@@ -20,7 +20,7 @@ if aws kinesis describe-stream --stream-name ${stream_name} > /dev/null 2>&1; th
   echo "deleted stream ${stream_name}"
 fi
 
-# create the stream
+# create the stream with a single shard
 echo "creating stream ${stream_name}"
 aws kinesis create-stream --stream-name ${stream_name} --shard-count 1
 aws kinesis wait stream-exists --stream-name ${stream_name}
