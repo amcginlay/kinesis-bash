@@ -31,7 +31,7 @@ for outer in $(seq ${outer_range}); do
     record="Data=$(base64 <<< ${outer}.${inner}),PartitionKey=${RANDOM}"
     records="${records} ${record}"
   done
-  echo "producing batch: ${outer} of ${outer_range}"
+  echo "producing batch ${outer} of ${outer_range}"
   aws kinesis put-records --stream-name ${stream_name} --records ${records} > /dev/null 2>&1
   echo "sleeping for ${sleep_duration} seconds"
   sleep ${sleep_duration}
