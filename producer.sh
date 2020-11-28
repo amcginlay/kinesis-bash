@@ -35,3 +35,4 @@ for outer in $(seq ${outer_range}); do
   echo "sleeping for ${sleep_duration} seconds ..."
   sleep ${sleep_duration}
 done
+echo "producer done!"
