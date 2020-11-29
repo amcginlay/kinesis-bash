@@ -2,7 +2,7 @@
 
 To run this demo, first ensure the following:
 
-- `aws` CLI is installated and authenticated to use Kinesis.
+- `aws` CLI is installated and authorized to use Kinesis.
 - [`jq`](https://stedolan.github.io/jq/) is installed.
 
 Then execute ...
