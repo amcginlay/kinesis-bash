@@ -1,8 +1,8 @@
 #!/bin/bash
 
 if [[ $# -eq 0 ]]; then
-    echo "missing arg, please pass numerical stream identifier"
-    exit -1
+  echo "missing arg, please pass numerical stream identifier"
+  exit -1
 fi
 
 stream_name=data_${1}
